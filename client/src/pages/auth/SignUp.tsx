@@ -1,6 +1,7 @@
 import { Eye, EyeOff, Lock, Mail, User } from "lucide-react";
 import login from "../../assets/auth.jpg";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -78,7 +79,10 @@ const SignUp = () => {
           </button>
 
           <p className="font-semibold text-base-content/60 ">
-            Already have an account <span className="underline">Sign in</span>
+            Already have an account{" "}
+            <Link to="/signin" className="underline">
+              Sign in
+            </Link>
           </p>
         </form>
       </div>

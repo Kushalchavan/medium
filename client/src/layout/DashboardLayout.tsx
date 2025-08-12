@@ -7,7 +7,7 @@ const DashboardLayout = () => {
   return (
     <>
         <Navbar/>
-        <div className="w-screen h-full flex ">
+        <div className="w-screen h-full flex justify-between ">
         <Sidebar/>
         <Blogs/>
         <Widgets/>

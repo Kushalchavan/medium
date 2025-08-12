@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Home = () => {
   return (
     <div className="w-screen h-screen bg-base-100">
@@ -42,9 +44,11 @@ const Home = () => {
             <li className="cursor-pointer font-semibold text-base-content/60">
               Sign in
             </li>
-            <button className="shadow-sm bg-black btn rounded-3xl text-white">
-              Get started
-            </button>
+            <Link to="/signin">
+              <button className="shadow-sm bg-black btn rounded-3xl text-white">
+                Get started
+              </button>
+            </Link>
           </ul>
         </div>
       </nav>
@@ -55,9 +59,11 @@ const Home = () => {
         <p className="text-semibold text-xl text-base-content/60">
           A place to read, write and deepen your understanding
         </p>
-        <button className="bg-black btn md:btn-lg rounded-3xl text-white">
-          Start reading
-        </button>
+        <Link to="/signin">
+          <button className="bg-black btn md:btn-lg rounded-3xl text-white">
+            Start reading
+          </button>
+        </Link>
       </div>
 
       <footer className="bg-base-200 w-screen h-24 border-t border-t-base-300 shadow-sm">

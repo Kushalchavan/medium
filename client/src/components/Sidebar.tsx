@@ -9,7 +9,7 @@ import {
 
 const Sidebar = () => {
   return (
-    <aside className="w-72 border-r border-r-base-300 h-[calc(100vh-64px)] flex flex-col justify-start items-center p-8 shadow-sm">
+    <aside className="w-64 border-r border-r-base-300 h-[calc(100vh-64px)] flex flex-col justify-start items-center p-8 shadow-sm">
       <ul className="mb-5 w-full flex flex-col justify-start gap-4">
         <li className="flex gap-1">
           <House strokeWidth={1} /> Home
