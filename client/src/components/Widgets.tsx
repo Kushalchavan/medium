@@ -40,6 +40,20 @@ const Widgets = () => {
           Start writing
         </button>
       </div>
+
+      <div className="mt-5">
+        <h2 className="font-semibold mb-3">Recommended topics</h2>
+
+        <div className="flex flex-wrap gap-3 mt-4">
+          <button className="btn rounded-full">Writing</button>
+          <button className="btn rounded-full">Machine Learning</button>
+          <button className="btn rounded-full">Relationships</button>
+          <button className="btn rounded-full">Politics</button>
+          <button className="btn rounded-full">Crytocurrency</button>
+          <button className="btn rounded-full">Business</button>
+          <button className="btn rounded-full">Psychology</button>
+        </div>
+      </div>
     </div>
   );
 };
