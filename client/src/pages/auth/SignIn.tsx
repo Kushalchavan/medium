@@ -10,7 +10,7 @@ const SignIn = () => {
     <div className="w-screen h-screen flex ">
       <div className="h-full w-full md:w-[50%] flex justify-center items-center">
         <form className="space-y-6 w-[400px] border border-base-300 p-4 rounded-sm shadow-sm">
-          <h1 className="text-2xl font-bold text-center">Create Account</h1>
+          <h1 className="text-2xl font-bold text-center">Welcome Back</h1>
           <p className="font-semibold text-base-content/60 text-center">
             Get started with your account
           </p>
