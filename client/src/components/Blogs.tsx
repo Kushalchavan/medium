@@ -1,10 +1,11 @@
 import { Heart, MessageCircle } from "lucide-react";
 import Icon from "../assets/logo.jpeg";
 
+
 const Blogs = () => {
   return (
-    <div className="flex flex-col gap-10">
-    <div className="max-w-[840px] flex justify-center mt-6 gap-4 cursor-pointer">
+    <div className="w-[840px] flex flex-col gap-10">
+    <div className="w-full flex justify-center mt-6 gap-4 cursor-pointer">
       {/* left */}
       <div>
         <div className="flex items-center gap-2">
@@ -14,7 +15,7 @@ const Blogs = () => {
             alt="author-image"
             className="size-6 rounded-full object-cover"
           />{" "}
-          <span className="text-xs text-base-content/60">Saurav Mandal</span>
+          <span className="text-xs text-base-content/60 hover:underline">Saurav Mandal</span>
         </div>
 
         <div className="flex flex-col gap-2 mt-3">

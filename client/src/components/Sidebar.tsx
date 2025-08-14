@@ -7,8 +7,12 @@ import {
   User,
 } from "lucide-react";
 
-const Sidebar = () => {
-  return (
+type SidebarProps = {
+  isSidebarVisible: boolean;
+};
+
+const Sidebar = ({ isSidebarVisible }: SidebarProps) => {
+  return isSidebarVisible ? (
     <aside className="w-64 border-r border-r-base-300 h-[calc(100vh-64px)] flex flex-col justify-start items-center p-8 shadow-sm">
       <ul className="mb-5 w-full flex flex-col justify-start gap-4">
         <li className="flex gap-1">
@@ -37,7 +41,7 @@ const Sidebar = () => {
       <hr className="w-full h-[2px] mt-7 mb-7 text-neutral-200" />
 
       <div className="flex flex-col gap-4">
-        <h2 className="text-semibold flex items-center gap-1">
+        <h2 className="font-semibold flex items-center gap-1">
           Following <ChevronRight strokeWidth={1} />
         </h2>
 
@@ -49,6 +53,6 @@ const Sidebar = () => {
         <p className="text-xs underline">see suggestions</p>
       </div>
     </aside>
-  );
+  ) : null;
 };
 export default Sidebar;

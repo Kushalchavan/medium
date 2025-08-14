@@ -1,11 +1,19 @@
 import { AlignJustify, Bell, SquarePen } from "lucide-react";
 
-const Navbar = () => {
+type NavbarProps = {
+  isSidebarVisible: boolean;
+  setIsSidebarVisible: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const Navbar = ({ isSidebarVisible, setIsSidebarVisible }: NavbarProps) => {
   return (
     <div className="w-screen h-16 border border-b-base-200 shadow-sm px-3 sm:px-5 lg:px-8">
       <nav className="w-full h-full flex justify-between items-center">
         <div className="flex items-center gap-6  cursor-pointer max-w-[50%]">
-          <AlignJustify className="w-6 h-6 text-base-content/60" />
+          <AlignJustify
+            onClick={() => setIsSidebarVisible(!isSidebarVisible)}
+            className="w-6 h-6 text-base-content/60"
+          />
 
           <h1 className="text-2xl font-bold hidden md:inline">Blogify</h1>
 

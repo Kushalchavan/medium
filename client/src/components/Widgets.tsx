@@ -11,8 +11,8 @@ const Widgets = () => {
             Michelle Glauser
           </span>
         </div>
-        <h2 className="text-lg font-bold">
-          How th #LookLikeAnEnginner Ad Campaign Happened Ten Years Ago
+        <h2 className="text-lg font-bold leading-normal">
+          How the #LookLikeAnEnginner Ad Campaign Happened Ten Years Ago
         </h2>
         <span className="text-xs text-base-content/60 ">Aug 3</span>
       </div>
