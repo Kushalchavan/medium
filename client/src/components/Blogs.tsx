@@ -3,7 +3,8 @@ import Icon from "../assets/logo.jpeg";
 
 const Blogs = () => {
   return (
-    <div className="max-w-[840px] flex justify-center mt-6 gap-4">
+    <div className="flex flex-col gap-10">
+    <div className="max-w-[840px] flex justify-center mt-6 gap-4 cursor-pointer">
       {/* left */}
       <div>
         <div className="flex items-center gap-2">
@@ -53,13 +54,14 @@ const Blogs = () => {
         </div>
       </div>
       {/* right */}
-      <div className="w-60 h-30 mt-3">
+      <div className="w-50 h-30 mt-3">
         <img
           src={Icon}
           alt="post-image"
           className="w-full h-full object-cover"
         />
       </div>
+    </div>
     </div>
   );
 };
