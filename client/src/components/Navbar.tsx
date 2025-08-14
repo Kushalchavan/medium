@@ -1,4 +1,5 @@
 import { AlignJustify, Bell, SquarePen } from "lucide-react";
+import { Link } from "react-router-dom";
 
 type NavbarProps = {
   isSidebarVisible: boolean;
@@ -15,7 +16,9 @@ const Navbar = ({ isSidebarVisible, setIsSidebarVisible }: NavbarProps) => {
             className="w-6 h-6 text-base-content/60"
           />
 
-          <h1 className="text-2xl font-bold hidden md:inline">Blogify</h1>
+          <Link to="/home">
+            <h1 className="text-2xl font-bold hidden md:inline">Blogify</h1>
+          </Link>
 
           <label className="input rounded-2xl hidden md:flex w-xl">
             <svg
@@ -39,13 +42,16 @@ const Navbar = ({ isSidebarVisible, setIsSidebarVisible }: NavbarProps) => {
         </div>
 
         <div className="flex items-center gap-7">
-          <p className="flex gap-2 items-center justify-center text-base-content/60 font-semibold cursor-pointer">
+          <Link
+            to="/write"
+            className="flex gap-2 items-center justify-center text-base-content/60 font-semibold cursor-pointer"
+          >
             <SquarePen
               strokeWidth={1}
               className="font-light size-5 text-base-content/60"
             />{" "}
             Write
-          </p>
+          </Link>
           <Bell
             strokeWidth={1}
             className="font-light size-5 text-base-content/60 cursor-pointer hidden md:inline"

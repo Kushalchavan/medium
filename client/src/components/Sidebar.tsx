@@ -4,6 +4,7 @@ import {
   ChartColumnBig,
   ChevronRight,
   House,
+  SquarePen,
   User,
 } from "lucide-react";
 
@@ -14,9 +15,12 @@ type SidebarProps = {
 const Sidebar = ({ isSidebarVisible }: SidebarProps) => {
   return isSidebarVisible ? (
     <aside className="w-64 border-r border-r-base-300 h-[calc(100vh-64px)] flex flex-col justify-start items-center p-8 shadow-sm">
-      <ul className="mb-5 w-full flex flex-col justify-start gap-4">
+      <ul className="mb-5 w-full flex flex-col justify-start gap-5">
         <li className="flex gap-1">
           <House strokeWidth={1} /> Home
+        </li>
+        <li className="flex gap-1">
+          <SquarePen strokeWidth={1} /> Write
         </li>
         <li className="flex gap-1">
           <Bookmark strokeWidth={1} /> Library
@@ -27,7 +31,7 @@ const Sidebar = ({ isSidebarVisible }: SidebarProps) => {
         </li>
       </ul>
 
-      <ul className="mt-10 w-full flex flex-col justify-start gap-4">
+      <ul className="mt-10 w-full flex flex-col justify-start gap-5">
         <li className="flex gap-1">
           {" "}
           <BookText strokeWidth={1} />

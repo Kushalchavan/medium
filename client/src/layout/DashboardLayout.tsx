@@ -1,12 +1,11 @@
 import { useState } from "react";
-import Blogs from "../components/Blogs";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
-import Widgets from "../components/Widgets";
+import { Outlet } from "react-router-dom";
 
 const DashboardLayout = () => {
   const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(true);
-  
+
   return (
     <>
       <Navbar
@@ -15,8 +14,7 @@ const DashboardLayout = () => {
       />
       <div className="w-screen h-full flex justify-between ">
         <Sidebar isSidebarVisible={isSidebarVisible} />
-        <Blogs />
-        <Widgets />
+        <Outlet />
       </div>
     </>
   );

@@ -1,19 +1,23 @@
+import DashboardLayout from "./layout/DashboardLayout";
 import SignIn from "./pages/auth/SignIn";
 import SignUp from "./pages/auth/SignUp";
-import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Landing from "./pages/Landing";
 import Write from "./pages/Write";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="signup" element={<SignUp />} />
-        <Route path="signin" element={<SignIn />} />
-        <Route path="/dashboard" element={<Dashboard/>}/>
-        <Route path="/write" element={<Write/>}/>
+        <Route path="/" element={<Landing />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signin" element={<SignIn />} />
+
+        <Route element={<DashboardLayout />}>
+          <Route path="/home" element={<Home />} />
+          <Route path="/write" element={<Write />} />
+        </Route>
       </Routes>
     </Router>
   );

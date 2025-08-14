@@ -2,7 +2,7 @@ import Editor from "../components/Editor";
 
 const Write = () => {
   return (
-    <div className="w-screen h-auto px-20 mt-20">
+    <div className="w-screen h-auto px-20 mt-10">
       <div className="max-w-3xl flex flex-col gap-7">
         <input
           type="text"
