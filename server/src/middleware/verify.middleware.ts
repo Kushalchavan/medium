@@ -1,10 +1,11 @@
-import { Request, Response, NextFunction } from "express";
+import { Response, NextFunction } from "express";
 import jwt, { JwtPayload } from "jsonwebtoken";
 import User from "../model/user.model";
 import type { JwtUserPayload } from "../shared/types";
+import { AuthenticatedRequest } from "../types/Customtypes";
 
 export const verify = async (
-  req: Request,
+  req: AuthenticatedRequest,
   res: Response,
   next: NextFunction
 ) => {
@@ -14,6 +15,7 @@ export const verify = async (
       (req.headers.authorization?.startsWith("Bearer")
         ? req.headers.authorization?.split(" ")[1]
         : undefined);
+
     if (!token) return res.status(401).json({ message: "No token provided" });
 
     const secret = process.env.JWT_SECRET;
@@ -24,10 +26,10 @@ export const verify = async (
       return res.status(401).json({ message: "Invalid token payload" });
     }
 
-    // fetch user
     const doc = await User.findById(decoded.userId)
       .select("username email")
       .lean();
+
     if (!doc) return res.status(401).json({ message: "User not found" });
 
     req.user = doc;

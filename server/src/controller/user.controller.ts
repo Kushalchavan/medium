@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import bcrypt from "bcryptjs";
 import { generateToken } from "../lib/utils";
 import User from "../model/user.model";
+import { AuthenticatedRequest } from "../types/Customtypes";
 
 export const signup = async (req: Request, res: Response) => {
   const { username, email, password } = req.body;
@@ -69,7 +70,7 @@ export const logout = async (req: Request, res: Response) => {
   }
 };
 
-export const checkAuth = (req: Request, res: Response) => {
+export const checkAuth = (req: AuthenticatedRequest, res: Response) => {
   try {
     if (!req.user) return res.status(401).json({ message: "Not authrorized" });
     return res.status(200).json(req.user);
