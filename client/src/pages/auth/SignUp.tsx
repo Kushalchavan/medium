@@ -20,8 +20,8 @@ const SignUp = () => {
               <span className="label-text font-medium">Full Name</span>
             </label>
             <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <User className="size-5 text-base-content/40" />
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none z-10">
+                <User className="size-5 text-base-content/30" />
               </div>
               <input
                 type="text"
@@ -36,8 +36,8 @@ const SignUp = () => {
               <span className="label-text font-medium">Email</span>
             </label>
             <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <Mail className="size-5 text-base-content/40" />
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none z-10">
+                <Mail className="size-5 text-base-content/30" />
               </div>
               <input
                 type="email"
@@ -52,8 +52,8 @@ const SignUp = () => {
               <span className="label-text font-medium">Password</span>
             </label>
             <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <Lock className="size-5 text-base-content/40" />
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none z-10">
+                <Lock className="size-5 text-base-content/30" />
               </div>
               <input
                 type={showPassword ? "password" : "text"}
@@ -66,9 +66,9 @@ const SignUp = () => {
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? (
-                  <EyeOff className="size-5 text-base-content/40" />
+                  <EyeOff className="size-5 text-base-content/30 cursor-pointer" />
                 ) : (
-                  <Eye className="size-5 text-base-content/40" />
+                  <Eye className="size-5 text-base-content/30 cursor-pointer" />
                 )}
               </button>
             </div>
