@@ -1,15 +1,30 @@
-import { Eye, EyeOff, Lock, Mail } from "lucide-react";
+import { Eye, EyeOff, Loader2, Lock, Mail } from "lucide-react";
 import login from "../../assets/auth.jpg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSignIn } from "../../hooks/useAuth";
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const { mutate: signIn, isPending, error } = useSignIn();
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get("email") as string;
+    const password = formData.get("password") as string;
+
+    signIn({ email, password });
+  };
 
   return (
     <div className="w-screen h-screen flex ">
       <div className="h-full w-full md:w-[50%] flex justify-center items-center">
-        <form className="space-y-6 w-[400px] border border-base-300 p-4 rounded-sm shadow-sm">
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-6 w-[400px] border border-base-300 p-4 rounded-sm shadow-sm"
+        >
           <h1 className="text-2xl font-bold text-center">Welcome Back</h1>
           <p className="font-semibold text-base-content/60 text-center">
             Get started with your account
@@ -25,6 +40,7 @@ const SignIn = () => {
               </div>
               <input
                 type="email"
+                name="email"
                 className="input input-bordered w-full pl-10"
                 placeholder="you@example.com"
               />
@@ -41,6 +57,7 @@ const SignIn = () => {
               </div>
               <input
                 type={showPassword ? "password" : "text"}
+                name="password"
                 className="input input-bordered w-full pl-10"
                 placeholder="••••••••"
               />
@@ -55,11 +72,20 @@ const SignIn = () => {
                   <Eye className="size-5 text-base-content/30 cursor-pointer" />
                 )}
               </button>
+              {error && <p>{(error as Error).message}</p>}
             </div>
           </div>
 
-          <button type="submit" className="btn btn-neutral w-full">
-            Create Account
+          <button
+            type="submit"
+            className="btn btn-neutral w-full"
+            disabled={isPending}
+          >
+            {isPending ? (
+              <Loader2 className="w-5 h-5 animate-spin" />
+            ) : (
+              "Sign In"
+            )}
           </button>
 
           <p className="font-semibold text-base-content/60 ">

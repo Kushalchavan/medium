@@ -1,15 +1,31 @@
-import { Eye, EyeOff, Lock, Mail, User } from "lucide-react";
+import { Eye, EyeOff, Loader2, Lock, Mail, User } from "lucide-react";
 import login from "../../assets/auth.jpg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSignUp } from "../../hooks/useAuth";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const { mutate: signUp, isPending, error } = useSignUp();
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const password = formData.get("password") as string;
+
+    signUp({ name, email, password });
+  };
 
   return (
     <div className="w-screen h-screen flex ">
       <div className="h-full w-full md:w-[50%] flex justify-center items-center">
-        <form className="space-y-6 w-[400px] p-4 border border-base-300 rounded-sm shadow-sm">
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-6 w-[400px] p-4 border border-base-300 rounded-sm shadow-sm"
+        >
           <h1 className="text-2xl font-bold text-center">Create Account</h1>
           <p className="font-semibold text-base-content/60 text-center">
             Get started with your account
@@ -25,6 +41,7 @@ const SignUp = () => {
               </div>
               <input
                 type="text"
+                name="name"
                 className="input input-bordered w-full pl-10"
                 placeholder="Enter name"
               />
@@ -41,6 +58,7 @@ const SignUp = () => {
               </div>
               <input
                 type="email"
+                name="email"
                 className={`input input-bordered w-full pl-10`}
                 placeholder="you@example.com"
               />
@@ -57,6 +75,7 @@ const SignUp = () => {
               </div>
               <input
                 type={showPassword ? "password" : "text"}
+                name="password"
                 className={`input input-bordered w-full pl-10`}
                 placeholder="••••••••"
               />
@@ -72,10 +91,16 @@ const SignUp = () => {
                 )}
               </button>
             </div>
+
+            {error && <p>{(error as Error).message}</p>}
           </div>
 
           <button type="submit" className="btn btn-neutral w-full">
-            Create Account
+            {isPending ? (
+              <Loader2 className=" w-5 h-5 animate-spin" />
+            ) : (
+              "Sign Up"
+            )}
           </button>
 
           <p className="font-semibold text-base-content/60 ">
