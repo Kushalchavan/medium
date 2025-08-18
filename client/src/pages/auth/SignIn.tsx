@@ -72,8 +72,8 @@ const SignIn = () => {
                   <Eye className="size-5 text-base-content/30 cursor-pointer" />
                 )}
               </button>
-              {error && <p>{(error as Error).message}</p>}
             </div>
+              {error && <p className="text-xs text-red-500  mt-1">{(error as Error).message}</p>}
           </div>
 
           <button

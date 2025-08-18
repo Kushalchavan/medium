@@ -1,3 +1,4 @@
+import ProtectedRoute from "./components/ProtectedRoute";
 import DashboardLayout from "./layout/DashboardLayout";
 import SignIn from "./pages/auth/SignIn";
 import SignUp from "./pages/auth/SignUp";
@@ -14,9 +15,11 @@ const App = () => {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
 
-        <Route element={<DashboardLayout />}>
-          <Route path="/home" element={<Home />} />
-          <Route path="/write" element={<Write />} />
+        <Route element={<ProtectedRoute />}>
+          <Route element={<DashboardLayout />}>
+            <Route path="/home" element={<Home />} />
+            <Route path="/write" element={<Write />} />
+          </Route>
         </Route>
       </Routes>
     </Router>
