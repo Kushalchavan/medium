@@ -1,12 +1,13 @@
 import { Eye, EyeOff, Loader2, Lock, Mail } from "lucide-react";
 import login from "../../assets/auth.jpg";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSignIn } from "../../hooks/useAuth";
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const { mutate: signIn, isPending, error } = useSignIn();
+  const navigate= useNavigate();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -15,7 +16,11 @@ const SignIn = () => {
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
 
-    signIn({ email, password });
+    signIn({ email, password },  {
+      onSuccess: () => {
+        navigate("/home"); // 👈 redirect after login
+      },
+    });
   };
 
   return (

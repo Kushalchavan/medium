@@ -1,5 +1,6 @@
-import { AlignJustify, Bell, SquarePen } from "lucide-react";
-import { Link } from "react-router-dom";
+import { AlignJustify, Bell, Loader2, SquarePen } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { useLogout } from "../hooks/useAuth";
 
 type NavbarProps = {
   isSidebarVisible: boolean;
@@ -7,6 +8,16 @@ type NavbarProps = {
 };
 
 const Navbar = ({ isSidebarVisible, setIsSidebarVisible }: NavbarProps) => {
+  const { mutate: logout, isPending } = useLogout();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout(undefined, {
+      onSuccess: () => {
+        navigate("/signin");
+      },
+    });
+  };
   return (
     <div className="w-screen h-16 border border-b-base-200 shadow-sm px-3 sm:px-5 lg:px-8">
       <nav className="w-full h-full flex justify-between items-center">
@@ -56,8 +67,15 @@ const Navbar = ({ isSidebarVisible, setIsSidebarVisible }: NavbarProps) => {
             strokeWidth={1}
             className="font-light size-5 text-base-content/60 cursor-pointer hidden md:inline"
           />
-          <button className="btn btn-sm md:btn-md btn-neutral rounded-3xl">
-            logout
+          <button
+            onClick={handleLogout}
+            className="btn btn-sm md:btn-md btn-neutral rounded-3xl"
+          >
+            {isPending ? (
+              <Loader2 className="w-5 h-5 animate-spin" />
+            ) : (
+              "Logout"
+            )}
           </button>
         </div>
       </nav>

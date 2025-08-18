@@ -1,22 +1,30 @@
 import { Eye, EyeOff, Loader2, Lock, Mail, User } from "lucide-react";
 import login from "../../assets/auth.jpg";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSignUp } from "../../hooks/useAuth";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const { mutate: signUp, isPending, error } = useSignUp();
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
-    const name = formData.get("name") as string;
+    const username = formData.get("username") as string;
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
 
-    signUp({ name, email, password });
+    signUp(
+      { username, email, password },
+      {
+        onSuccess: () => {
+          navigate("/home"); // 👈 redirect after login
+        },
+      }
+    );
   };
 
   return (
@@ -41,7 +49,7 @@ const SignUp = () => {
               </div>
               <input
                 type="text"
-                name="name"
+                name="username"
                 className="input input-bordered w-full pl-10"
                 placeholder="Enter name"
               />
@@ -99,7 +107,11 @@ const SignUp = () => {
             )}
           </div>
 
-          <button type="submit" className="btn btn-neutral w-full">
+          <button
+            type="submit"
+            className="btn btn-neutral w-full"
+            disabled={isPending}
+          >
             {isPending ? (
               <Loader2 className=" w-5 h-5 animate-spin" />
             ) : (

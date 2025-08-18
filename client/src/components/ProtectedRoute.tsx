@@ -9,7 +9,7 @@ const ProtectedRoute = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        await api.get("/auth/me");
+        await api.get("/api/v1/auth/me");
         setIsAuth(true);
       } catch (error) {
         setIsAuth(false);
@@ -22,7 +22,7 @@ const ProtectedRoute = () => {
   if (isAuth === null)
     return (
       <div className="w-screen h-screen flex justify-center items-center">
-        <Loader2 className="size-6 animate-spin" />
+        <Loader2 className="size-8 animate-spin" />
       </div>
     );
 
