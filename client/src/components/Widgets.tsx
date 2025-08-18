@@ -30,7 +30,7 @@ const Widgets = () => {
         <span className="text-xs text-base-content/60 ">Aug 3</span>
       </div>
 
-      <div className="mt-7 w-full p-4 bg-blue-200 flex flex-col gap-2 rounded-sm shadow-sm">
+      <div className="mt-7 w-full p-4 text-base-content bg-blue-300 flex flex-col gap-2 rounded-sm shadow-sm">
         <h2 className="font-bold">Writing on Blogify</h2>
         <p className="font-semibold">Join our Blogify Writing 101 Webinar</p>
 
