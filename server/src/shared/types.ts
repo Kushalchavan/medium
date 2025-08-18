@@ -7,3 +7,11 @@ export type UserType = {
 export type JwtUserPayload = {
   userId: string;
 };
+
+
+export type BlogType = {
+  title: string;
+  content: string;
+  image?: string;
+  author: string;
+}

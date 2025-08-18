@@ -5,6 +5,7 @@ import cors from "cors";
 import morgan from "morgan";
 import connectDB from "./config/connectDB";
 import userRoutes from "./routes/user.route";
+import blogRoutes from "./routes/blog.route";
 
 dotenv.config();
 const PORT = process.env.PORT || 3001;
@@ -22,6 +23,7 @@ app.use(
 );
 
 app.use("/api/v1/auth", userRoutes);
+app.use("/api/v1/blogs", blogRoutes);
 
 app.listen(PORT, () => {
   connectDB();

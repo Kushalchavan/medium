@@ -32,6 +32,7 @@ export const verify = async (
 
     if (!doc) return res.status(401).json({ message: "User not found" });
 
+    req.userId = decoded.userId;
     req.user = doc;
     next();
   } catch (error) {
