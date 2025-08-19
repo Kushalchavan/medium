@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import personIcon from "../assets/logo.jpeg";
 
 const Widgets = () => {
   return (
-    <div className="hidden md:inline w-86 h-auto border-l border-l-base-300 shadow-sm p-7">
+    <div className="hidden lg:inline w-86 h-auto border-l border-l-base-300 shadow-sm p-7">
       <h3 className="text-lg font-semibold">Staff Picks</h3>
       <div className="flex flex-col gap-3 mt-4">
         <div className="flex gap-2 items-center">
@@ -36,9 +37,11 @@ const Widgets = () => {
 
         <p className="font-semibold">Read Blogify tips & tricks</p>
         <p className="font-semibold">Get practical Blogify writing advice</p>
-        <button className="btn btn-neutral rounded-full btn-sm">
-          Start writing
-        </button>
+        <Link to="/write">
+          <button className="btn btn-neutral rounded-full btn-sm">
+            Start writing
+          </button>
+        </Link>
       </div>
 
       <div className="mt-5">

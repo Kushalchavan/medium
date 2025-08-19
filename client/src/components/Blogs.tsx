@@ -1,6 +1,6 @@
 import { Heart, MessageCircle } from "lucide-react";
 import Icon from "../assets/logo.jpeg";
-import { useBlogs } from "../hooks/useBlock";
+import { useBlogs } from "../hooks/useBlog";
 import { Link } from "react-router-dom";
 
 const Blogs = () => {
@@ -9,7 +9,7 @@ const Blogs = () => {
   if (isLoading) return <p>loading blogs...</p>;
   return (
     <div className="w-[840px] flex flex-col gap-10">
-      <div className="w-full flex justify-center mt-6 gap-4 cursor-pointer">
+      <div className="p-4 w-full flex justify-between mt-5 gap-4 cursor-pointer hover:bg-base-300/50 transition">
         {/* left */}
         <div>
           <div className="flex items-center gap-2">
@@ -70,14 +70,16 @@ const Blogs = () => {
         </div>
       </div>
 
+
+
       {blogs?.map((blog) => (
-        <Link to={`/blogs/${blog.id}`}>
-          <div
-            key={blog.id}
-            className="w-full flex justify-center mt-6 gap-4 cursor-pointer"
+          <Link 
+          to={`/blogs/${blog._id}`}
+            key={blog._id}
+            className="p-4 max-w-full flex justify-between mt-1 gap-4 cursor-pointer hover:bg-base-300/50 transition"
           >
             {/* left */}
-            <div>
+            <div className="max-w-[70%]">
               <div className="flex items-center gap-2">
                 {" "}
                 <img
@@ -86,7 +88,7 @@ const Blogs = () => {
                   className="size-6 rounded-full object-cover"
                 />{" "}
                 <span className="text-xs text-base-content/60 hover:underline">
-                  Saurav Mandal
+                  {blog.author?.username}
                 </span>
               </div>
 
@@ -130,8 +132,7 @@ const Blogs = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-          </div>
-        </Link>
+          </Link>
       ))}
     </div>
   );
