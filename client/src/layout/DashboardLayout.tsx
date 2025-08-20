@@ -12,7 +12,7 @@ const DashboardLayout = () => {
         isSidebarVisible={isSidebarVisible}
         setIsSidebarVisible={setIsSidebarVisible}
       />
-      <div className="w-screen h-full flex justify-between ">
+      <div className="mt-16 w-screen h-full flex justify-between ">
         <Sidebar isSidebarVisible={isSidebarVisible} />
         <Outlet />
       </div>

@@ -14,7 +14,7 @@ export const useSignIn = () => {
   return useMutation({
     mutationFn: (data: SignInPayload) => signIn(data),
     onSuccess: (data) => {
-      setUser(data.user);
+      setUser(data.user, data.token);
     },
   });
 };
@@ -24,7 +24,7 @@ export const useSignUp = () => {
 
   return useMutation({
     mutationFn: (data: SignUpPayload) => signUp(data),
-    onSuccess: (data) => setUser(data.user),
+    onSuccess: (data) => setUser(data.user, data.token),
   });
 };
 

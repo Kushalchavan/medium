@@ -8,6 +8,7 @@ import Write from "./pages/Write";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { themeStore } from "./store/theme";
 import BlogDetail from "./pages/BlogDetail";
+import EditBlog from "./pages/EditBlog";
 
 const App = () => {
   const { theme } = themeStore();
@@ -30,6 +31,7 @@ const App = () => {
             <Route path="/home" element={<Home />} />
             <Route path="/write" element={<Write />} />
             <Route path="/blogs/:id" element={<BlogDetail />} />
+            <Route path="/blogs/:id/edit" element={<EditBlog />} />
           </Route>
         </Route>
       </Routes>

@@ -19,18 +19,24 @@ const Editor = ({
         placeholder: "Start typing...",
       });
 
+      // Set initial value
       if (value) {
-        quillRef.current.root.innerHTML = value;
+        quillRef.current.clipboard.dangerouslyPasteHTML(value);
       }
 
       // Listen for changes
       quillRef.current.on("text-change", () => {
-        const html =
-          editorRef.current?.querySelector(".ql-editor")?.innerHTML || "";
+        const html = quillRef.current?.root.innerHTML || "";
         onChange(html);
       });
     }
-  }, []); // ✅ run only once
+  }, []);
+
+  useEffect(() => {
+    if (quillRef.current && value !== quillRef.current.root.innerHTML) {
+      quillRef.current.clipboard.dangerouslyPasteHTML(value);
+    }
+  }, [value]);
 
   return <div ref={editorRef} style={{ height: "300px" }} />;
 };

@@ -21,7 +21,7 @@ const Navbar = ({ isSidebarVisible, setIsSidebarVisible }: NavbarProps) => {
     });
   };
   return (
-    <div className="w-screen h-16 border-b border-b-base-200 shadow-sm px-3 sm:px-5 lg:px-8">
+    <div className="fixed top-0 backdrop-blur-sm w-screen h-16 border-b border-b-base-200 shadow-sm px-3 sm:px-5 lg:px-8">
       <nav className="w-full h-full flex justify-between items-center">
         <div className="flex items-center gap-6  cursor-pointer max-w-[50%]">
           <AlignJustify
