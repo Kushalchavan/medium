@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 const Landing = () => {
   return (
-    <div className="w-screen h-screen bg-base-100">
-      <nav className="w-screen h-20 bg-base-200 border-b border-b-base-300 px-4 md:px-8 lg:px-12 py-2 flex justify-between items-center">
+    <div className="w-screen min-h-screen bg-base-100">
+      <nav className="w-screen h-20 bg-base-200 border-b border-b-base-300 px-4 md:px-8 lg:px-12 py-2 flex justify-between items-center ">
         <h1 className="text-2xl font-bold">Blogify</h1>
         <div>
           <ul className="flex justify-between items-center gap-3">
@@ -20,15 +20,15 @@ const Landing = () => {
               Sign in
             </li>
             <Link to="/signin">
-              <button className="shadow-sm bg-black btn rounded-3xl text-white">
+              <button className="shadow-sm bg-black btn btn-md rounded-3xl text-white">
                 Get started
               </button>
             </Link>
           </ul>
         </div>
       </nav>
-      <div className="w-screen h-[calc(100vh-180px)] flex justify-center items-start flex-col gap-5 px-4 md:px-8 lg:px-12 py-2">
-        <h1 className=" font-bold text-5xl md:text-7xl lg:text-8xl">
+      <main className="w-screen h-[calc(100vh-180px)] flex justify-center items-start flex-col gap-5 px-4 md:px-8 lg:px-12 py-2">
+        <h1 className=" font-bold text-5xl md:text-7xl lg:text-8xl overflow-hidden">
           Human <br /> stories & ideas
         </h1>
         <p className="text-semibold text-xl text-base-content/60">
@@ -39,9 +39,9 @@ const Landing = () => {
             Start reading
           </button>
         </Link>
-      </div>
+      </main>
 
-      <footer className="bg-base-200 w-screen h-24 border-t border-t-base-300 shadow-sm">
+      <footer className="bg-base-200 h-24 border-t border-t-base-300 shadow-sm">
         <ul className="w-full h-full flex items-center justify-center gap-3 font-semibold text-base-content/60">
           <li className="hover:underline cursor-pointer">About</li>
           <li className="hover:underline cursor-pointer">Help</li>
