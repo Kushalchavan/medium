@@ -23,12 +23,12 @@ const BlogDetail = () => {
   if (!blog) return <p>Blog not found</p>;
 
   return (
-    <div className="w-full mt-4 h-auto flex items-center flex-col gap-3">
-      <h1 className="text-2xl font-semibold">{blog.title}</h1>
+    <div className="w-full mt-4 h-auto flex items-center flex-col gap-3 p-8">
+      <h1 className="text-4xl font-semibold">{blog.title}</h1>
       <p className="text-xs text-base-content/60">{blog.author?.username}</p>
 
       <div
-        className="prose max-w-none text-lg text-base-content/80"
+        className="prose w-full text-start p-7 text-lg text-base-content/80"
         dangerouslySetInnerHTML={{ __html: blog.content }}
       />
 
@@ -46,7 +46,7 @@ const BlogDetail = () => {
 
       <button
         onClick={handleDelete}
-        className="btn btn-error flex items-center gap-1"
+        className="btn btn-error text-white flex items-center gap-1"
       >
         {isPending ? (
           <Loader2 className="animate-spin size-5" />
