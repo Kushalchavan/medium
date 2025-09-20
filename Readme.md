@@ -1,6 +1,6 @@
 # 📝 Blogify  
 
-A modern full-stack **blog application** where users can create, read, update, and delete blogs with a smooth and interactive UI.  
+A modern full-stack **blog application** where users can create, read, update, and delete blogs with a smooth and interactive UI Like Medium.  
 Built with **React, TypeScript, Node.js, Express, and MongoDB** 🚀  
 
 ---
