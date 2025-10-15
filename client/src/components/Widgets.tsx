@@ -13,9 +13,9 @@ const Widgets = () => {
           </span>
         </div>
         <h2 className="text-lg font-bold leading-normal">
-          How the #LookLikeAnEnginner Ad Campaign Happened Ten Years Ago
+          How the #LookLikeAnEngineer Ad Campaign Happened Ten Years Ago
         </h2>
-        <span className="text-xs text-base-content/60 ">Aug 3</span>
+        <span className="text-xs text-base-content/60">Aug 3</span>
       </div>
 
       <div className="flex flex-col gap-3 mt-4">
@@ -26,7 +26,7 @@ const Widgets = () => {
           </span>
         </div>
         <h2 className="text-lg font-bold">
-          How th #LookLikeAnEnginner Ad Campaign Happened Ten Years Ago
+          How th #LookLikeAnEngineer Ad Campaign Happened Ten Years Ago
         </h2>
         <span className="text-xs text-base-content/60 ">Aug 3</span>
       </div>
@@ -52,7 +52,7 @@ const Widgets = () => {
           <button className="btn rounded-full">Machine Learning</button>
           <button className="btn rounded-full">Relationships</button>
           <button className="btn rounded-full">Politics</button>
-          <button className="btn rounded-full">Crytocurrency</button>
+          <button className="btn rounded-full">Cryptocurrency</button>
           <button className="btn rounded-full">Business</button>
           <button className="btn rounded-full">Psychology</button>
         </div>
