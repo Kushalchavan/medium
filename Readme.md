@@ -33,7 +33,7 @@ Built with **React, TypeScript, Node.js, Express, and MongoDB** 🚀
 
 ---
 
-## 📸 Screenshots  
+### 📸 Screenshots  
 
 ### ☀️ light Mode
 ![light mode image](./client/src/assets/screenshot1.png)  
